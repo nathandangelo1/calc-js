@@ -1,8 +1,9 @@
 //VARIABLES
 var inputField = document.getElementById("calc-display");
 
+
 //FUNCTIONS
-function InsertNum(num){
+function InsertNum(num) {
   inputField.textContent += num;
 }
 
@@ -11,13 +12,14 @@ function ClearInput() {
 }
 
 function EraseNum() {
-  var expressionLength = inputField.textContent.length;
-  var newExpression = inputField.textContent.substring(0,expressionLength-1)
+  let expressionLength = inputField.textContent.length;
+  let newExpression = inputField.textContent.substring(0,expressionLength-1)
   inputField.textContent = newExpression;
 }
 
 function EqualTo() {
-  var expression = inputField.textContent;
-  var result = eval(inputField.textContent);
+  let mathproblem = new MathProblem();
+  let exp = mathproblem.InfixtoPostfix();
+  let result = mathproblem.RPNEvaluator(exp)
   inputField.textContent = result;
 }
